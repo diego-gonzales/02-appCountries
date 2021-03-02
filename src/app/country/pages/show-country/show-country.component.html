@@ -1,0 +1,64 @@
+
+<app-spinner *ngIf="!country; else divCountry"></app-spinner>
+<!-- <div class="alert alert-info" *ngIf="!country; else divCountry">Please, wait a moment...</div> -->
+
+<ng-template #divCountry>
+
+    <div class="animate__animated animate__fadeIn animated__fast">
+
+        <div class="row">
+            <div class="col-12">
+                <h2>Country: <small>{{country.name}}</small></h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mt-2">
+                <h3>Flag</h3>
+                <img [src]="country.flag" [alt]="country.name" class="img-thumbnail">
+            </div>
+            <div class="col-md-8 mt-2">
+                <h3>Information</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Code: </strong>{{country.alpha2Code}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Original name: </strong>{{country.name}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Capital: </strong>{{country.capital}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Population: </strong>{{country.population | number}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Currency: </strong>{{country.currencies[0].name}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Location: </strong>{{country.subregion}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="row mt-2">
+            <h3>Traducciones</h3>
+    
+            <div class="col">
+                <span class="badge bg-primary mx-1">{{country.translations.es}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.de}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.fr}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.br}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.fa}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.hr}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.it}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.ja}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.nl}}</span>
+                <span class="badge bg-primary mx-1">{{country.translations.pt}}</span>
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>

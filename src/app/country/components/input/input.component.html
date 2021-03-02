@@ -1,0 +1,8 @@
+<form autocomplete="off" (submit)="sendValue($event)">
+    <input type="text"
+           name="termino"
+           class="form-control"
+           [placeholder]="placeholderValue"
+           #inputSearch
+           (input)="keyPressed()"/>
+</form>

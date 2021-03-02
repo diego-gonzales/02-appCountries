@@ -1,0 +1,34 @@
+<div class="animate__animated animate__fadeIn">
+    <h3>Search by Region <strong>{{activeRegion | titlecase}}</strong></h3>
+    <hr>
+    
+    <div class="row">
+        <h4>Select a Region</h4>
+        <div class="col-md-12">
+    
+            <button class="m-1 btn"
+                    *ngFor="let region of regions"
+                    [class]="getClassButton(region)"
+                    (click)="activateRegion(region)">
+                {{region | titlecase}}
+            </button>
+    
+        </div>
+    </div>
+</div>
+
+
+<div class="row mt-2">
+    <div class="col-md-12">
+        <app-country-table [arrayCountriesChild]="arrayCountries"></app-country-table>
+    </div>
+</div>
+
+
+<!-- Manera de aplicar una clase de manera condicional en angular -->
+<!-- 1° Forma de hacerlo [class.btn-primary]="region === activeRegion" -->
+<!-- 2° Forma de hacerlo [ngClass]="{
+    'btn-primary': region === activeRegion,
+    'btn-outline-primary': region !== activeRegion
+}" -->
+<!-- 3° Forma de hacerlo [class]=" (region === activeRegion) ? 'btn-primary' : 'btn-outline-primary' " -->

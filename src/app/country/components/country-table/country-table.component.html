@@ -1,0 +1,25 @@
+<table class="table table-light animate__animated animate__fadeIn animated__fast" *ngIf="countries.length > 0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Flag</th>
+            <th>Name</th>
+            <th>Population</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let countrycito of countries; let i = index">
+            <td>{{i + 1}}</td>
+            <td>
+                <img [src]="countrycito.flag" class="img-fluid small-flag" alt="flag">
+            </td>
+            <td>{{countrycito.capital}}, {{countrycito.name}}</td>
+            <td>{{countrycito.population | number}}</td>
+            <td>
+                <a [routerLink]="['/country', countrycito.alpha2Code]">Show...</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

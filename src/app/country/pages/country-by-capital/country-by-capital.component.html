@@ -1,0 +1,38 @@
+<div class="animate__animated animate__fadeIn">
+    <h2>By Capital</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            <app-input  [placeholderValue]="placeholder"
+                        (emitInputValue)="search($event)"
+                        (emitInputValueDebounce)="showSuggestions($event)">
+            </app-input>
+        </div>
+    </div>
+
+    <!-- Bloque de HTML para mostrar las sugerencias cuando el usuario va escribiendo -->
+    <ul class="list-group" *ngIf="showSugerencias">
+        <li *ngFor="let suggestion of arraySuggestions" class="list-group-item list-group-item-action">
+            <a [routerLink]="['/country', suggestion.alpha2Code]" class="nav-link">{{suggestion.capital}}</a>
+        </li>
+
+        <li class="list-group-item list-group-item-action text-center" *ngIf=" termino !== '' ">
+            <a (click)="search(termino)" class="nav-link">Show all results for "{{termino}}"</a>
+        </li>
+    </ul>
+    <!-- Fin de este bloque -->
+
+</div>
+
+<hr>
+
+<div class="alert alert-danger" *ngIf="showAlert">
+    Not found country {{termino}}
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-country-table [arrayCountriesChild]="arrayCountries"></app-country-table>
+    </div>
+</div>
