@@ -42,6 +42,7 @@ export class InputComponent implements OnInit {
 
 
   keyPressed() {
+    if (!this.myInput.nativeElement.value.trim()) return; // esto para que no cuenta cuando se presiona solo la tecla de 'espaciado'
     this.debounceSubject.next(this.myInput.nativeElement.value);
   }
 

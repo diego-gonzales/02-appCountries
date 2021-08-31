@@ -1,18 +1,18 @@
 <div class="animate__animated animate__fadeIn">
     <h3>Search by Region <strong>{{activeRegion | titlecase}}</strong></h3>
     <hr>
-    
+
     <div class="row">
         <h4>Select a Region</h4>
         <div class="col-md-12">
-    
+
             <button class="m-1 btn"
                     *ngFor="let region of regions"
                     [class]="getClassButton(region)"
                     (click)="activateRegion(region)">
                 {{region | titlecase}}
             </button>
-    
+
         </div>
     </div>
 </div>
